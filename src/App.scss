@@ -1,0 +1,401 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat&family=Roboto&display=swap");
+  .container-fluid {
+    margin: 0px auto;
+    max-width: 1400px;
+  }
+
+  .ant-layout-header {
+    padding: 0 !important;
+  }
+
+  .ant-layout {
+    background: #fff !important;
+  }
+
+  /* header */
+
+  .header {
+    z-index: 999;
+    padding: 5px 100px;
+    background-color: #ffffff;
+    /* max-width: 1440px; */
+    left: 0px;
+    position: absolute;
+    right: 0px;
+    height: 80px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.16);
+  }
+
+  /* register */
+
+  .register-container {
+    padding-top: 100px;
+  }
+
+  .register-container .register-form-container {
+    background-color: #f2f2f2;
+    padding-top: 43px;
+    padding-bottom: 51px;
+    padding-left: 93px;
+    padding-right: 203px;
+  }
+
+  /* Footer styling */
+
+  .footer {
+    margin-bottom: 0px;
+    color: #ffffff;
+    height: 104px;
+    padding: 22px 106px;
+    background-color: #0a533b;
+    width: 100%;
+  }
+
+  .ant-tabs-tab {
+    width: 223px;
+    border-radius: 5px 5px 0px 0px !important;
+    margin-right: 5px !important;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.16) !important;
+    color: black !important;
+    font-weight: 400 !important;
+    font-size: 16px !important;
+  }
+
+  .ant-tabs-tab.custom {
+    color: white;
+    background-color: rgba(235, 111, 93, 1) !important;
+  }
+
+  .ant-tabs-tab.ant-tabs-tab-active .ant-tabs-tab-btn {
+    text-shadow: 0 0 0.25px currentColor;
+    color: black !important;
+  }
+  .vl {
+    border-left: 1px solid #c4c4c4;
+    height: 81px;
+    margin-right: 5px;
+  }
+
+  
+.t{
+  .cardd {
+      position: absolute;
+      width: 1320px;
+      height: 800px;
+      left: 80px;
+      background:#fff;
+      font-size:100px;
+    }
+    .transactions {
+      position: relative;
+      width: 1320px;
+      height: 40px;
+      text-align: right;
+      background: #fff !important;
+      font-size: 16px !important;
+      display: block;
+    }
+     a {
+      position: relative;
+      margin-top: 1000px !important;
+      margin-right: 100px;
+    }
+     .seller {
+      background: #12805c !important;
+      border-radius: 5px 5px 0px 0px !important;
+      color: white;
+      margin-bottom: 0px !important;
+    }
+    /* .ant-tabs {
+      width: 1320px;
+      height: 800px;
+      margin-left: 60px !important;
+      background: #e5e5e5;
+    } */
+    .rowClassName1 td:first-child {
+      border-left: 6px solid #f6a041;
+      border-top-left-radius: 5px;
+      border-bottom-left-radius: 5px;
+    }
+     .rowClassName2 td:first-child {
+      border-left: 6px solid #12805c;
+      border-top-left-radius: 5px;
+      border-bottom-left-radius: 5px;
+    }
+    .buyer {
+      width: 223px;
+      height: 40px;
+      background: white !important;
+      border-radius: 5px 5px 0px 0px !important;
+      color: black !important;
+      
+    }
+    #rc-tabs-0-tab-2.ant-tabs-tab-btn {
+      color: black;
+      width: 121px;
+      height: 20px;
+      font-family: Roboto;
+      font-style: normal;
+      font-weight: 500;
+      font-size: 17px;
+      line-height: 140.62%;
+    }
+    #rc-tabs-0-tab-1.ant-tabs-tab-btn {
+      color: white;
+      width: 121px;
+      height: 20px;
+      font-family: Roboto;
+      font-style: normal;
+      font-weight: 500;
+      font-size: 17px;
+      line-height: 140.62%;
+    }
+    .ant-tabs > .ant-tabs-nav {
+      /* So that there is no gap between the content and tabs */
+      margin-bottom: 0px !important;
+      color: #fff !important;
+    }
+    .ant-table-measure-row {
+      min-height: 0px !important;
+      display: none;
+    }
+    /* row data */
+    tbody > tr > td {
+      height: 74px !important;
+      padding: 2px 2px 2px 2px !important;
+    }
+    tbody > tr > td > p {
+      height: 20px !important;
+      padding: 0px 0px 0px 0px !important;
+    }
+    tr > td .ant-table-cell {
+      height: 84px !important;
+      padding: 0px;
+    }
+    .ant-tabs-content-holder {
+      /* padding: 15px; */
+      margin-top: 0px !important;
+      border-top: 10px solid #12805c;
+    }
+    .title {
+      margin-top: 50px;
+      margin-left: 80px;
+      font-family: Roboto;
+      font-style: normal;
+      font-weight: 500;
+      font-size: 18px;
+      line-height: 25.31px !important;
+      color: black;
+    }
+    .ant-table {
+      font-family: Roboto !important;
+      font-style: normal !important;
+      font-weight: 500 !important;
+      font-size: 16px !important;
+      line-height: 140.62% !important;
+    }
+
+    .ant-table-thead .ant-table-cell {
+      background: #c4c4c4 !important;
+      font-family: Roboto !important;
+      font-style: normal !important;
+      font-weight: 500 !important;
+      font-size: 17px !important;
+      line-height: 140.62% !important;
+      border-radius: 2px 2px 0px 0px !important;
+    }
+    .ant-tabs-ink-bar .ant-tabs-ink-bar-animated {
+      border-top: 10px solid #12805c !important;
+      display: none;
+    }
+
+    div .ant-tabs-content .ant-tabs-content-top {
+      background: #c4c4c4 !important;
+      font-family: Roboto !important;
+      font-style: normal !important;
+      font-weight: normal !important;
+      font-size: 14px !important;
+      line-height: 140.62% !important;
+      border-radius: 5px 5px 0px 0px !important;
+    }
+    .ant-table-row .ant-table-row-level-0 {
+      height: 5px !important;
+    }
+    .ant-pagination .ant-table-pagination .ant-table-pagination-right {
+      display: none !important;
+    }
+    #rc-tabs-0-panel-1 &{
+      background: #c4c4c4 !important;
+      font-family: Roboto !important;
+      font-style: normal !important;
+      font-weight: normal !important;
+      font-size: 14px !important;
+      line-height: 140.62% !important;
+      border-radius: 5px 5px 0px 0px !important;
+    }
+}
+// .m
+// {
+//   // @import url('https://fonts.googleapis.com/css2?family=Montserrat&family=Roboto&display=swap');
+//     .card  {
+//      position: absolute;
+//     width: 1320px;
+//     height: 431.5px;
+//     left: 60px;
+//     background: #FFFF !important;
+//     box-shadow: 0px 0px 10px;
+//     font-size: 100px;
+//     }
+//     .matches {
+//       position:relative;
+//       font-family: Roboto;
+//       font-style: normal;
+//       font-weight: normal;
+//       font-size: 14px !important;
+//       color: #4285F4;
+//     }
+//     a{
+//       position: relative;
+//       margin-top:1000px !important; 
+//       margin-left:1000px !important ;
+//     }
+//     .seller
+//     {
+//       position: relative;
+//       width: 223px;
+//       height: 40px;
+//       background: #12805C !important;
+//       border-radius: 5px 5px 0px 0px;
+//     }
+//     .ant-tabs
+//     {
+//     width: 1320px;
+//     height: 800px;
+//     margin-left: 60px !important;
+//     background:#E5E5E5;
+//     }
+//     .buyer
+//     {
+//     width: 223px;
+//     height: 40px;
+//     background:white!important;
+//     border-radius: 5px 5px 0px 0px!important;
+//     color: black !important;
+//     }
+//     #rc-tabs-0-tab-2.ant-tabs-tab-btn
+//     {
+//       color:black;
+//       width: 121px;
+//       height: 20px;
+//       font-family: Roboto;
+//       font-style: normal;
+//       font-weight: 500;
+//       font-size: 17px;
+//       line-height: 140.62%;
+//     }
+//     #rc-tabs-0-tab-1.ant-tabs-tab-btn 
+//     {
+//     color:white;
+//     width: 121px;
+//     height: 20px;
+//     font-family: Roboto;
+//     font-style: normal;
+//     font-weight: 500;
+//     font-size: 17px;
+//     line-height: 140.62%;
+//     }
+
+//     .ant-tabs > .ant-tabs-nav { /* So that there is no gap between the content and tabs */
+//       margin-bottom: 0px !important;
+//       color:#fff !important;
+//     }
+//     .ant-table-measure-row
+//     {
+//       min-height:0px !important;
+//       display:none;
+//     }
+//     /* row data */
+//     tbody > tr > td {
+//       height: 74px !important;
+//       padding: 2px 2px 2px 2px !important;
+//     }
+//     tbody > tr > td >p {
+//       height: 20px !important;
+//       padding: 0px 0px 0px 0px !important;
+//     }
+//     tr > td .ant-table-cell 
+//     {
+//       height: 84px !important;
+//       padding: 0px; 
+//     }
+//     .ant-tabs-content-holder {
+//       /* padding: 15px; */
+//       margin-top: 0px !important;
+//       border-top: 10px solid #12805C;
+//     }
+//     .title
+//     {
+//     margin-top:50px;
+//     margin-left: 120px;
+//     font-family: Roboto;
+//     font-style: normal;
+//     font-weight: 500;
+//     font-size: 18px;
+//     line-height: 25.31px !important;
+//     color:black;
+//     }
+//     .ant-table
+//     {
+//       font-family: Roboto !important;
+//     font-style: normal !important;
+//     font-weight: 500 !important;
+//     font-size: 16px !important;
+//     line-height: 140.62% !important;
+//     }
+
+//     .ant-table-thead .ant-table-cell
+//     {
+//     background:#C4C4C4!important;
+//     font-family: Roboto !important;
+//     font-style: normal !important;
+//     font-weight: 500 !important;
+//     font-size: 17px !important;
+//     line-height: 140.62% !important;
+//     border-radius: 2px 2px 0px 0px!important;
+//     }
+//     .ant-tabs-ink-bar .ant-tabs-ink-bar-animated
+//     {
+//       border-top: 10px solid #12805C !important;
+//       display:none;
+//     }
+
+//     div .ant-tabs-content .ant-tabs-content-top
+//     {
+//       background:#C4C4C4!important;
+//     font-family: Roboto !important;
+//     font-style: normal !important;
+//     font-weight: normal !important;
+//     font-size: 14px !important;
+//     line-height: 140.62% !important;
+//     border-radius: 5px 5px 0px 0px!important;
+//     }
+//     .ant-table-row .ant-table-row-level-0
+//     {
+//       height: 5px !important;
+//     }
+//     .ant-pagination .ant-table-pagination .ant-table-pagination-right
+//     {
+//       display: none !important;
+//     }
+//     #rc-tabs-0-panel-1
+//     {
+//       background:#C4C4C4!important;
+//     font-family: Roboto !important;
+//     font-style: normal !important;
+//     font-weight: normal !important;
+//     font-size: 14px !important;
+//     line-height: 140.62% !important;
+//     border-radius: 5px 5px 0px 0px!important;
+//     }
+
+// }

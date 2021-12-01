@@ -1,9 +1,10 @@
 import React from "react";
-
+// import "./styles.css";
 import Information from "./components/information";
 import { Tabs } from "antd";
 import ActionsUI from "./components/actions_ui";
 import Transactions from "./components/transactions";
+// import Matches from "./components/matches";
 const { TabPane } = Tabs;
 const Dashboard = () => {
   return (
@@ -23,7 +24,9 @@ const Dashboard = () => {
           <ActionsUI />
         </TabPane>
       </Tabs>
-      <Transactions />
+      <div className="t">
+        <Transactions />
+      </div>
     </div>
   );
 };
