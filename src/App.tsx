@@ -1,5 +1,5 @@
 // import { BrowserRouter as Router } from "react-router-dom";
-// import { Layout } from "antd";
+import { Affix } from "antd";
 import "./App.scss";
 import AppHeader from "./components/common/AppHeader";
 import Footer from "./components/common/Footer";
@@ -9,6 +9,9 @@ import Dashboard from "./dashboard-ui";
 function App() {
   return (
     <div className="App">
+      <Affix>
+        <AppHeader />
+      </Affix>
       <Dashboard />
     </div>
   );

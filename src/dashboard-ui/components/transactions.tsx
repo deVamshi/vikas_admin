@@ -24,10 +24,15 @@ const columns: ColumnsType<User> = [
     {
         title: "ID",
         dataIndex: "id",
+        width: '10%',
+        align: 'left',
     },
     {
         title: "Status",
         dataIndex: "tags",
+        width: '14%',
+        align: 'left',
+
         render: (tags) => (
             <>
                 {tags.map((tag: any) => {
@@ -58,20 +63,28 @@ const columns: ColumnsType<User> = [
     },
     {
         title: "Produce",
-        dataIndex: "produce"
+        dataIndex: "produce",
+        width: '14%',
+        align: 'left',
     },
     {
         title: "Transaction Value",
-        dataIndex: "tvalue"
+        dataIndex: "tvalue",
+        width: '13%',
+        align: 'left',
     },
     {
         title: "Quantity",
-        dataIndex: "quantity"
+        dataIndex: "quantity",
+        width: '10%',
+        align: 'left',
     },
 
     {
         title: "Seller ID",
         dataIndex: "sids",
+        width: '10%',
+        align: 'left',
         render: (sids: string) => (
             <p style={{ color: "blue" }} key={sids}>
                 {sids}
@@ -82,6 +95,8 @@ const columns: ColumnsType<User> = [
     {
         title: "Buyer",
         dataIndex: "buyer",
+
+        align: 'left',
         render: (buyer) => (
             <>
                 {buyer.map((buy: any) => {
@@ -175,7 +190,7 @@ const data: User[] = [
 ];
 function App() {
     return (
-        <>
+        <div className="t">
             <Typography.Title level={4} className="title">Live Transaction Details</Typography.Title>
             <Space> </Space>
             <Tabs type="card" className="cardd" >
@@ -188,7 +203,7 @@ function App() {
                 <TabPane tab="Buyer Transactions" key="2" className="buyer">
                 </TabPane>
             </Tabs>
-        </>
+        </div>
 
     );
 }

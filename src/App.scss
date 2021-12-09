@@ -76,8 +76,9 @@
     margin-right: 5px;
   }
 
-  
+  /* Transactions & Matches */
 .t{
+  height:650px;
   .cardd {
       position: absolute;
       width: 1320px;
@@ -94,6 +95,10 @@
       background: #fff !important;
       font-size: 16px !important;
       display: block;
+    }
+    .ant-spin-container
+    {
+      background-color: #fff;
     }
      a {
       position: relative;
@@ -161,9 +166,13 @@
     }
     /* row data */
     tbody > tr > td {
-      height: 74px !important;
+      height: 50px !important;
       padding: 2px 2px 2px 2px !important;
     }
+    // td
+    // {
+    //   width:20%;
+    // }
     tbody > tr > td > p {
       height: 20px !important;
       padding: 0px 0px 0px 0px !important;
@@ -175,9 +184,20 @@
     .ant-tabs-content-holder {
       /* padding: 15px; */
       margin-top: 0px !important;
-      border-top: 10px solid #12805c;
+      border-top: 5px solid #12805c;
     }
     .title {
+      margin-top: 50px;
+      margin-left: 80px;
+      font-family: Roboto;
+      font-style: normal;
+      font-weight: 500;
+      font-size: 18px;
+      line-height: 25.31px !important;
+      color: black;
+    }
+    .title1 {
+      position:relative;
       margin-top: 50px;
       margin-left: 80px;
       font-family: Roboto;
@@ -204,10 +224,10 @@
       line-height: 140.62% !important;
       border-radius: 2px 2px 0px 0px !important;
     }
-    .ant-tabs-ink-bar .ant-tabs-ink-bar-animated {
-      border-top: 10px solid #12805c !important;
-      display: none;
-    }
+    // .ant-tabs-ink-bar .ant-tabs-ink-bar-animated {
+    //   border-top: 1px solid #12805c !important;
+    //   display: none;
+    // }
 
     div .ant-tabs-content .ant-tabs-content-top {
       background: #c4c4c4 !important;
@@ -234,168 +254,145 @@
       border-radius: 5px 5px 0px 0px !important;
     }
 }
-// .m
-// {
-//   // @import url('https://fonts.googleapis.com/css2?family=Montserrat&family=Roboto&display=swap');
-//     .card  {
-//      position: absolute;
-//     width: 1320px;
-//     height: 431.5px;
-//     left: 60px;
-//     background: #FFFF !important;
-//     box-shadow: 0px 0px 10px;
-//     font-size: 100px;
-//     }
-//     .matches {
-//       position:relative;
-//       font-family: Roboto;
-//       font-style: normal;
-//       font-weight: normal;
-//       font-size: 14px !important;
-//       color: #4285F4;
-//     }
-//     a{
-//       position: relative;
-//       margin-top:1000px !important; 
-//       margin-left:1000px !important ;
-//     }
-//     .seller
-//     {
-//       position: relative;
-//       width: 223px;
-//       height: 40px;
-//       background: #12805C !important;
-//       border-radius: 5px 5px 0px 0px;
-//     }
-//     .ant-tabs
-//     {
-//     width: 1320px;
-//     height: 800px;
-//     margin-left: 60px !important;
-//     background:#E5E5E5;
-//     }
-//     .buyer
-//     {
-//     width: 223px;
-//     height: 40px;
-//     background:white!important;
-//     border-radius: 5px 5px 0px 0px!important;
-//     color: black !important;
-//     }
-//     #rc-tabs-0-tab-2.ant-tabs-tab-btn
-//     {
-//       color:black;
-//       width: 121px;
-//       height: 20px;
-//       font-family: Roboto;
-//       font-style: normal;
-//       font-weight: 500;
-//       font-size: 17px;
-//       line-height: 140.62%;
-//     }
-//     #rc-tabs-0-tab-1.ant-tabs-tab-btn 
-//     {
-//     color:white;
-//     width: 121px;
-//     height: 20px;
-//     font-family: Roboto;
-//     font-style: normal;
-//     font-weight: 500;
-//     font-size: 17px;
-//     line-height: 140.62%;
-//     }
+/* Header */
+.item{
+  border: 10dp;
+}
 
-//     .ant-tabs > .ant-tabs-nav { /* So that there is no gap between the content and tabs */
-//       margin-bottom: 0px !important;
-//       color:#fff !important;
-//     }
-//     .ant-table-measure-row
-//     {
-//       min-height:0px !important;
-//       display:none;
-//     }
-//     /* row data */
-//     tbody > tr > td {
-//       height: 74px !important;
-//       padding: 2px 2px 2px 2px !important;
-//     }
-//     tbody > tr > td >p {
-//       height: 20px !important;
-//       padding: 0px 0px 0px 0px !important;
-//     }
-//     tr > td .ant-table-cell 
-//     {
-//       height: 84px !important;
-//       padding: 0px; 
-//     }
-//     .ant-tabs-content-holder {
-//       /* padding: 15px; */
-//       margin-top: 0px !important;
-//       border-top: 10px solid #12805C;
-//     }
-//     .title
-//     {
-//     margin-top:50px;
-//     margin-left: 120px;
-//     font-family: Roboto;
-//     font-style: normal;
-//     font-weight: 500;
-//     font-size: 18px;
-//     line-height: 25.31px !important;
-//     color:black;
-//     }
-//     .ant-table
-//     {
-//       font-family: Roboto !important;
-//     font-style: normal !important;
-//     font-weight: 500 !important;
-//     font-size: 16px !important;
-//     line-height: 140.62% !important;
-//     }
-
-//     .ant-table-thead .ant-table-cell
-//     {
-//     background:#C4C4C4!important;
-//     font-family: Roboto !important;
-//     font-style: normal !important;
-//     font-weight: 500 !important;
-//     font-size: 17px !important;
-//     line-height: 140.62% !important;
-//     border-radius: 2px 2px 0px 0px!important;
-//     }
-//     .ant-tabs-ink-bar .ant-tabs-ink-bar-animated
-//     {
-//       border-top: 10px solid #12805C !important;
-//       display:none;
-//     }
-
-//     div .ant-tabs-content .ant-tabs-content-top
-//     {
-//       background:#C4C4C4!important;
-//     font-family: Roboto !important;
-//     font-style: normal !important;
-//     font-weight: normal !important;
-//     font-size: 14px !important;
-//     line-height: 140.62% !important;
-//     border-radius: 5px 5px 0px 0px!important;
-//     }
-//     .ant-table-row .ant-table-row-level-0
-//     {
-//       height: 5px !important;
-//     }
-//     .ant-pagination .ant-table-pagination .ant-table-pagination-right
-//     {
-//       display: none !important;
-//     }
-//     #rc-tabs-0-panel-1
-//     {
-//       background:#C4C4C4!important;
-//     font-family: Roboto !important;
-//     font-style: normal !important;
-//     font-weight: normal !important;
-//     font-size: 14px !important;
-//     line-height: 140.62% !important;
-//     border-radius: 5px 5px 0px 0px!important;
-//     }
-
+.bell{
+  min-height: 10rem;
+}
+.col-2{
+  display: flex;
+  flex-direction: row;
+  flex-basis: 50%;
+}
+.col-2-2{
+  flex-direction: row-reverse;
+  flex-basis:70%;
+}
+.col-2-2-2{
+  flex-basis: 30%;
+  padding-top: 1.5rem;
+  align-items: center;
+  align-content: center;
+  text-align: right;
+  top:20%;
+}
+.top-text{
+  display: inline-block;
+  flex-basis: 30%;
+}
+.bottom-text{
+  display: inline-block;
+  flex-basis: 50%;
+}
+.standard-bar{
+  background-color: #F2F2F2;
+  display: flex;
+  flex-direction: row-reverse;
+  min-height: 2.5rem;
+  align-items: center;
+  
+  display: flex;
+  
+  padding-right: 1.5rem;
+  top:20%;
+}
+// .button{
+//   height: 10rem;
+//   position: relative;
+//   width:10rem;
+//   border: 15px;
+//   margin-bottom: 3rem;
 // }
+// .button:focus::after{
+//   content: '';
+//   position: absolute;
+//   width: 100%;
+//   height: 0.2rem;
+//   border-radius: 10;
+//   left: 0;
+//   bottom: 0;
+  
+//   background: #12805C;
+// }
+
+.breadcrumb{
+  flex-direction: row;
+  float: left;
+  left: 0;
+}
+.landing-page-header-bar {
+  background: #ffffff;
+  display: flex;
+  flex-direction: row;
+  height: fit-content;
+  width: 100%;
+  padding-left: 1.3rem;
+  padding-right: 1.5rem;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.16);
+  position: absolute;
+  z-index: 1;
+
+  .logo {
+      padding-left: 10px;
+      
+      width: 4.8rem;
+      height: 3.3rem;
+      float: left;
+  }
+
+  .header-breadcrumb {
+      color: black;
+      align-content: center;
+      width: auto;
+      font-size: 1.2rem;
+      align-items: center;
+      padding-top: 1.2rem;
+  }
+ 
+  .header-breadcrumb-item{
+      color: black;
+      margin-bottom: 10rem;
+  }
+  .custom-login-button,
+  .custom-register-button {
+      width: 10rem;
+      height: 3rem;
+  }
+  .ant-breadcrumb a:hover
+  {
+    color:black;
+    // border-bottom:10px solid black;
+  }
+  .ant-breadcrumb a
+  {
+    height:50px;
+    color:black;
+  }
+  .ant-breadcrumb a:active
+  {
+    color:black;
+    border-bottom:10px solid #12805C ;
+  }
+}
+/* Details */
+.details{
+  margin: 0;
+  position: relative;
+  top: 20%;
+}
+.container{
+display: flex;
+}
+.row-2-70{
+flex-basis: 70%;
+}
+.row-2-30{
+flex-basis: 30%;
+}
+h5{
+  display:inline;
+}
+

@@ -30,6 +30,7 @@ const DataAboutList = () => {
             marginRight: "30px",
           }}
         >
+          
           Trade Pending
         </span>
         <span
