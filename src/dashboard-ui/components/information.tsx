@@ -43,7 +43,24 @@ const overviewData = {
     },
   ],
 };
+const counter = {
+  id: 'counter',
+  beforeDraw(chart: any, args: any, options: any) {
+    const { ctx, chartArea: { top, right, bottom, left, width, height } } = chart;
+    ctx.save();
+    ctx.fillStyle = 'blue';
+    //ctx.fillRect(width/2,top+(height/2),10,10)
+    ctx.font = '20px Roboto';
+    ctx.textAlign = 'center';
+    console.log(width / 2);
+    ctx.fillText('Total', width / 2, top + (height / 2));
+    //x0=starting point on the horizontal level l/r
+    //y0=starting point on the vertical level t/b
+    //x1=length of the shape in pixel horizontal level
+    //y1=length of the shape in pixel vertical level
 
+  }
+};
 const data1 = {
   labels: ["Seller Only", "Buyer Only", "Seller + Buyer"],
   legend: {
@@ -62,12 +79,14 @@ const data1 = {
   ],
   options: {
     plugins: {
+
       title: {
         display: true,
         text: "Total",
       },
     },
   },
+  plugins: [counter]
 };
 
 const data2 = {
@@ -138,6 +157,7 @@ const halfData = {
   ],
 };
 
+
 export default function Information() {
   function generateDonut(donutData: any) {
     return (
@@ -145,6 +165,7 @@ export default function Information() {
         data={donutData}
         width={130}
         height={130}
+        plugins={[counter]}
         options={{
           maintainAspectRatio: false,
           plugins: {
@@ -152,7 +173,9 @@ export default function Information() {
               display: false,
             },
           },
-        }}
+        }
+        }
+
       />
     );
   }

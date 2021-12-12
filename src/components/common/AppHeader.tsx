@@ -17,14 +17,14 @@ import 'antd/dist/antd.css';
 const menu = (
   <Menu>
     <Menu.Item>
-      <a target="_blank" rel="noopener noreferrer" href="https://www.antgroup.com">
+      <Link to="/transactions">
         Transactions
-      </a>
+      </Link>
     </Menu.Item>
     <Menu.Item>
-      <a target="_blank" rel="noopener noreferrer" href="https://www.antgroup.com">
+      <Link to="/matches">
         Matches
-      </a>
+      </Link>
     </Menu.Item>
   </Menu>
 );
@@ -33,6 +33,7 @@ const menu = (
 const { Header } = Layout;
 
 function App() {
+  
 
   return (
     <div className="container1">
@@ -46,8 +47,8 @@ function App() {
         </div>
         <div className="col-2">
           <div className="col-2-2">
-            <Breadcrumb className="header-breadcrumb" separator=" ">
-              <Breadcrumb.Item className="item button" href="/www.google.com">Dashboard</Breadcrumb.Item>
+            <Breadcrumb className="header-breadcrumb" separator=" " >
+              <Breadcrumb.Item className="item button"><Link to="/">Dashboard</Link></Breadcrumb.Item>
               <Breadcrumb.Item>
                 <Dropdown overlay={menu}>
                   <a className="ant-dropdown-link" onClick={e => e.preventDefault()}>
@@ -55,16 +56,14 @@ function App() {
                   </a>
                 </Dropdown>
               </Breadcrumb.Item>
-              <Breadcrumb.Item className="item button" href="#home">
-                Users
+              <Breadcrumb.Item className="item button">
+                <Link to="/users">Users</Link>
               </Breadcrumb.Item>
-              <Breadcrumb.Item className="item button" href="#home">Produces</Breadcrumb.Item>
+              <Breadcrumb.Item className="item button" ><Link to="/produces">Produces</Link></Breadcrumb.Item>
 
-              <Breadcrumb.Item className="item bell" href="#home">
+              <Breadcrumb.Item className="item bell" >
                 <BellFilled style={{ fontSize: '115%' }} />
               </Breadcrumb.Item>
-
-
             </Breadcrumb>
           </div>
           <div className="col-2-2-2">
