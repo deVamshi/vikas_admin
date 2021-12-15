@@ -1,16 +1,44 @@
-import { Row, Col, Card } from "antd";
+import { Row, Col, Card, Select, Typography } from "antd";
 import "antd/dist/antd.css";
 
 import { Doughnut, defaults, Chart } from "react-chartjs-2";
 import DataAboutList from "./data_about_list";
 import "chartjs-plugin-doughnut-innertext";
 
+const { Link } = Typography;
 defaults.plugins.legend.position = "right";
+
+const { Option } = Select;
 
 const boxShadowStyle = {
   boxShadow: "0px 0px 10px rgba(0, 0, 0, 0.16)",
   paddingLeft: "0px !important",
   paddingRight: "0px !important",
+};
+
+const dashboardData = {
+  livetransactionoverview: {
+    tradepending: 200,
+    tradeconfirmed: 200,
+    sellerbooked: 200,
+    transportationtobeassigned: 200,
+    transportationassigned: 200,
+    producetobepicked: 200,
+    producepicked: 200,
+    produceintransit: 200,
+    producedelivered: 200,
+  },
+  vbusers: { selleronly: 300, buyeronly: 300, sellerandbuyer: 300 },
+  alltransactions: { ongoing: 200, pending: 200, completed: 300 },
+  sellerproduce: { yes: 400, no: 200 },
+  totaltransactionvalue: {
+    producetypea: 200,
+    producetypeb: 200,
+    producetypec: 200,
+    producetyped: 200,
+    otherproduces: 200,
+  },
+  matchstatus: { buyertoconfirm: 200, sellertoconfirm: 200 },
 };
 
 const overviewData = {
@@ -48,17 +76,39 @@ const counter = {
   beforeDraw(chart: any, args: any, options: any) {
     const { ctx, chartArea: { top, right, bottom, left, width, height } } = chart;
     ctx.save();
-    ctx.fillStyle = 'blue';
-    //ctx.fillRect(width/2,top+(height/2),10,10)
-    ctx.font = '20px Roboto';
+    ctx.font = '15px Roboto';
     ctx.textAlign = 'center';
     console.log(width / 2);
-    ctx.fillText('Total', width / 2, top + (height / 2));
+    ctx.font = '12px Roboto';
+    ctx.color="black";
+    ctx.fillText("Total", width / 2, top + (height / 2)-10);
+    ctx.font = '20px Roboto';
+    ctx.fontStyle = 'bold';
+    ctx.fontWeight = '600';
+    ctx.fillText('240', width / 2, top + (height / 2) + 10);
     //x0=starting point on the horizontal level l/r
     //y0=starting point on the vertical level t/b
     //x1=length of the shape in pixel horizontal level
     //y1=length of the shape in pixel vertical level
-
+  }
+};
+const counter1 = {
+  id: 'counter1',
+  beforeDraw(chart: any, args: any, options: any) {
+    const { ctx, chartArea: { top, right, bottom, left, width, height } } = chart;
+    ctx.save();
+    ctx.font = '12px Roboto';
+    ctx.textAlign = 'center';
+    ctx.color="black";
+    ctx.fillText('Total', width / 2, top + (height / 2) + 30);
+    ctx.font = '20px Roboto';
+    ctx.fontStyle = 'bold';
+    ctx.fontWeight = '600';
+    ctx.fillText('240', width / 2, top + (height / 2) + 50);
+    //x0=starting point on the horizontal level l/r
+    //y0=starting point on the vertical level t/b
+    //x1=length of the shape in pixel horizontal level
+    //y1=length of the shape in pixel vertical level
   }
 };
 const data1 = {
@@ -79,14 +129,13 @@ const data1 = {
   ],
   options: {
     plugins: {
-
       title: {
         display: true,
         text: "Total",
       },
     },
   },
-  plugins: [counter]
+  plugins: [counter],
 };
 
 const data2 = {
@@ -157,7 +206,6 @@ const halfData = {
   ],
 };
 
-
 export default function Information() {
   function generateDonut(donutData: any) {
     return (
@@ -173,9 +221,7 @@ export default function Information() {
               display: false,
             },
           },
-        }
-        }
-
+        }}
       />
     );
   }
@@ -184,13 +230,29 @@ export default function Information() {
     <div>
       <Row gutter={[32, 32]} style={{ padding: "10px" }}>
         <Col span={24}>
-          <Card style={boxShadowStyle} title="Live Transaction Overview">
+          <Card
+            style={boxShadowStyle}
+            title="Live Transaction Overview"
+            extra={
+              <Select
+                defaultValue="lucy"
+                style={{ width: 120 }}
+                onChange={(value) => console.log(`selected ${value}`)}
+              >
+                <Option value="jack">All</Option>
+                <Option value="lucy">Pending</Option>
+                <Option value="disabled">Completed</Option>
+                <Option value="Yiminghe">Booked</Option>
+              </Select>
+            }
+          >
             <Row align="middle">
               <Col span={6}>
                 <Doughnut
                   data={overviewData}
                   width={130}
                   height={130}
+                  plugins={[counter1]}
                   options={{
                     plugins: {
                       title: {
@@ -215,56 +277,196 @@ export default function Information() {
                 />
               </Col>
               <Col span={6}>
-                <DataAboutList />
+                <DataAboutList
+                  data={[
+                    {
+                      legend: "Trade Pending",
+                      value: 34,
+                      background: "#18578D",
+                    },
+
+                    {
+                      legend: "Trade Confirmed",
+                      value: 39,
+                      background: "#18578D",
+                    },
+                    {
+                      legend: "Seller Booked",
+                      value: 39,
+                      background: "#18578D",
+                    },
+                  ]}
+                />
               </Col>
               <Col span={6}>
-                <DataAboutList />
+                <DataAboutList
+                  data={[
+                    {
+                      legend: "Transportation to be Assigned",
+                      value: 34,
+                      background: "#18578D",
+                    },
+                    {
+                      legend: "Transportation Assigned",
+                      value: 39,
+                      background: "#86DDD4",
+                    },
+                    {
+                      legend: "Produce to be Picked",
+                      value: 39,
+                      background: "#66C5CA",
+                    },
+                  ]}
+                />
               </Col>
               <Col span={6}>
-                <DataAboutList />
+                <DataAboutList
+                  data={[
+                    {
+                      legend: "Produce Picked",
+                      value: 34,
+                      background: "#18578D",
+                    },
+                    {
+                      legend: "Produce in Transit",
+                      value: 39,
+                      background: "#57B9C4",
+                    },
+                    {
+                      legend: "Produce Delivered",
+                      value: 39,
+                      background: "#49ADBF",
+                    },
+                  ]}
+                />
               </Col>
             </Row>
+            <Link style={{ float: "right" }}>View Details</Link>
           </Card>
         </Col>
         <Col span={8}>
-          <Card title="VB Users" style={boxShadowStyle}>
+          <Card
+            title="VB Users"
+            style={boxShadowStyle}
+            extra={
+              <Select
+                defaultValue="lucy"
+                style={{ width: 120 }}
+                onChange={(value) => console.log(`selected ${value}`)}
+              >
+                <Option value="jack">Buyers</Option>
+                <Option value="lucy">Sellers</Option>
+                <Option value="disabled">All</Option>
+              </Select>
+            }
+          >
             <Row align="middle">
               <Col span={8}>{generateDonut(data1)}</Col>
               <Col span={16}>
-                <DataAboutList />
+                <DataAboutList
+                  data={[
+                    { legend: "Seller Only", value: 34, background: "#51826C" },
+                    { legend: "Buyer Only", value: 39, background: "#C6B272" },
+                    {
+                      legend: "Seller + Buyer",
+                      value: 39,
+                      background: "#33434C",
+                    },
+                  ]}
+                />
               </Col>
             </Row>
+            <Link style={{ float: "right" }}>View Details</Link>
           </Card>
         </Col>
 
         <Col span={8}>
-          <Card title="Overview" style={boxShadowStyle}>
+          <Card
+            title="Overview"
+            style={boxShadowStyle}
+            extra={
+              <Select
+                defaultValue="lucy"
+                style={{ width: 120 }}
+                onChange={(value) => console.log(`selected ${value}`)}
+              >
+                <Option value="jack">All</Option>
+                <Option value="lucy">Pending</Option>
+                <Option value="disabled">Completed</Option>
+                <Option value="Yiminghe">Booked</Option>
+              </Select>
+            }
+          >
             <Row align="middle">
               <Col span={8}>{generateDonut(data2)}</Col>
               <Col span={16}>
-                <DataAboutList />
+                <DataAboutList
+                  data={[
+                    { legend: "On Going", value: 34, background: "#A3437B" },
+                    { legend: "Pending", value: 39, background: "#EDC436" },
+                    { legend: "Completed", value: 39, background: "#EB6F5D" },
+                  ]}
+                />
               </Col>
             </Row>
+            <Link style={{ float: "right" }}>View Details</Link>
           </Card>
         </Col>
         <Col span={8}>
-          <Card title="Overview" style={boxShadowStyle}>
+          <Card
+            title="Overview"
+            style={boxShadowStyle}
+            extra={
+              <Select
+                defaultValue="lucy"
+                style={{ width: 120 }}
+                onChange={(value) => console.log(`selected ${value}`)}
+              >
+                <Option value="jack">All</Option>
+                <Option value="lucy">Pending</Option>
+                <Option value="disabled">Completed</Option>
+                <Option value="Yiminghe">Booked</Option>
+              </Select>
+            }
+          >
             <Row align="middle">
               <Col span={8}>{generateDonut(data1)}</Col>
               <Col span={16}>
-                <DataAboutList />
+                <DataAboutList
+                  data={[
+                    { legend: "Yes", value: 34, background: "#496CCE" },
+                    { legend: "No", value: 39, background: "#D9E4ED" },
+                  ]}
+                />
               </Col>
             </Row>
+            <Link style={{ float: "right" }}>View Details</Link>
           </Card>
         </Col>
         <Col span={16}>
-          <Card title="Total Transactiion Value" style={boxShadowStyle}>
+          <Card
+            title="Total Transactiion Value"
+            style={boxShadowStyle}
+            extra={
+              <Select
+                defaultValue="lucy"
+                style={{ width: 120 }}
+                onChange={(value) => console.log(`selected ${value}`)}
+              >
+                <Option value="jack">All</Option>
+                <Option value="lucy">Pending</Option>
+                <Option value="disabled">Completed</Option>
+                <Option value="Yiminghe">Booked</Option>
+              </Select>
+            }
+          >
             <Row align="middle">
               <Col span={8}>
                 <Doughnut
                   data={halfData}
                   width={130}
                   height={130}
+                  plugins={[counter1]}
                   options={{
                     plugins: {
                       title: {
@@ -286,22 +488,70 @@ export default function Information() {
                 />
               </Col>
               <Col span={8}>
-                <DataAboutList />
+                <DataAboutList
+                  data={[
+                    {
+                      legend: "Produce Type A",
+                      value: 34,
+                      background: "#A3437B",
+                    },
+                    {
+                      legend: "Produce Type B",
+                      value: 39,
+                      background: "#F27E54",
+                    },
+                    {
+                      legend: "Produce Type C",
+                      value: 39,
+                      background: "#F6A041",
+                    },
+                  ]}
+                />
               </Col>
               <Col span={8}>
-                <DataAboutList />
+                <DataAboutList
+                  data={[
+                    {
+                      legend: "Produce Type A",
+                      value: 34,
+                      background: "#EDC436",
+                    },
+                    {
+                      legend: "Other Produces",
+                      value: 39,
+                      background: "#C64E73",
+                    },
+                  ]}
+                />
               </Col>
             </Row>
+            <Link style={{ float: "right" }}>View Details</Link>
           </Card>
         </Col>
         <Col span={8}>
-          <Card title="Match Stats" style={boxShadowStyle}>
+          <Card
+            title="Match Stats"
+            style={boxShadowStyle}
+            extra={
+              <Select
+                defaultValue="lucy"
+                style={{ width: 120 }}
+                onChange={(value) => console.log(`selected ${value}`)}
+              >
+                <Option value="jack">All</Option>
+                <Option value="lucy">Pending</Option>
+                <Option value="disabled">Completed</Option>
+                <Option value="Yiminghe">Booked</Option>
+              </Select>
+            }
+          >
             <Row align="middle">
               <Col span={8}>
                 <Doughnut
                   data={matchStatusData}
                   width={130}
                   height={130}
+                  plugins={[counter]}
                   options={{
                     maintainAspectRatio: false,
                     plugins: {
@@ -313,12 +563,27 @@ export default function Information() {
                 />
               </Col>
               <Col span={16}>
-                <DataAboutList />
+                <DataAboutList
+                  data={[
+                    {
+                      legend: "Buyer to confirm ",
+                      value: 34,
+                      background: "#E7DED4",
+                    },
+                    {
+                      legend: "Seller to confirm",
+                      value: 39,
+                      background: "#DA4C62",
+                    },
+                  ]}
+                />
               </Col>
             </Row>
+            <Link style={{ float: "right" }}>View Details</Link>
           </Card>
         </Col>
       </Row>
     </div>
   );
 }
+

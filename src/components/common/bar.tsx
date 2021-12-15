@@ -1,20 +1,29 @@
 import React from 'react';
 import logo from './logo.svg';
-// import './App.scss';
-import { MailOutlined, PhoneFilled } from '@ant-design/icons';
-import { Space } from 'antd';
-function Bar(props: any) {
+import { MailOutlined,PhoneFilled } from '@ant-design/icons';
+
+function Bar(props:any) {
     return (
         <div>
-
-            <MailOutlined />
-            {props.mail}
-            <PhoneFilled />
-            {props.phone}
-
-
+            <div className="left-text">
+        <div className="left-text-first">
+        <MailOutlined />  
         </div>
-    );
-}
-
-export default Bar;
+        <div className="left-text-second">
+         {props.mail}
+         </div>
+         </div>
+         <div className="right-text">
+         <div className="left-text-first">
+         <PhoneFilled/>
+         </div>
+         <div className="left-text-second">
+         {props.phone}
+        </div>
+         </div>
+        
+        </div>
+      );
+  }
+  
+  export default Bar;
