@@ -1,9 +1,12 @@
+import { useSelector, useDispatch } from "react-redux";
 import { Row, Col, Card, Select, Typography } from "antd";
 import "antd/dist/antd.css";
-
+import { RootState } from "../../store";
 import { Doughnut, defaults, Chart } from "react-chartjs-2";
 import DataAboutList from "./data_about_list";
 import "chartjs-plugin-doughnut-innertext";
+import { getDashboardData } from "../../store/slices/dashboardSlice";
+import { useEffect, useState } from "react";
 
 const { Link } = Typography;
 defaults.plugins.legend.position = "right";
@@ -16,101 +19,48 @@ const boxShadowStyle = {
   paddingRight: "0px !important",
 };
 
-const dashboardData = {
-  livetransactionoverview: 
-  {
-  tradepending: 200,
-    tradeconfirmed: 200,
-      sellerbooked: 200,
-        transportationtobeassigned: 200,
-          transportationassigned: 200,
-            producetobepicked: 200,
-              producepicked: 200,
-                produceintransit: 200,
-                  producedelivered: 200,
+const counter = {
+  id: "counter",
+  beforeDraw(chart: any, args: any, options: any) {
+    const {
+      ctx,
+      chartArea: { top, right, bottom, left, width, height },
+    } = chart;
+    ctx.save();
+    ctx.font = "15px Roboto";
+    ctx.textAlign = "center";
+    console.log(width / 2);
+    ctx.font = "12px Roboto";
+    ctx.color = "black";
+    ctx.fillText("Total", width / 2, top + height / 2 - 10);
+    ctx.font = "20px Roboto";
+    ctx.fontStyle = "bold";
+    ctx.fontWeight = "600";
+    ctx.fillText("240", width / 2, top + height / 2 + 10);
   },
-vbusers: { selleronly: 300, buyeronly: 300, sellerandbuyer: 300 },
-alltransactions: { ongoing: 200, pending: 200, completed: 300 },
-sellerproduce: { yes: 400, no: 200 },
-totaltransactionvalue: {
-  producetypea: 200,
-    producetypeb: 200,
-      producetypec: 200,
-        producetyped: 200,
-          otherproduces: 200,
-  },
-matchstatus: { buyertoconfirm: 200, sellertoconfirm: 200 },
 };
 
-const overviewData = {
-  labels: [
-    "Trade Pending",
-    "Trade Confirmed",
-    "Seller Booked",
-    "Transportation to be Assigned",
-    "Product to be Picked",
-    "Produce Picked",
-    "Produce in Transit",
-    "Produce Delivered",
-  ],
-  legend: {
-    display: false,
-    position: "bottom",
-    fullSize: false,
-  },
-  datasets: [
-    {
-      label: "# of Votes",
-      data: [20, 20, 30, 20, 35, 20, 35, 30],
-      backgroundColor: [
-        "rgba(24, 87, 141, 1)",
-        "rgba(26, 75, 132, 1)",
-        "rgba(29, 63, 121, 1)",
-        "rgba(134, 221, 212, 1)",
-        "rgba(102, 197, 202, 1)",
-      ],
-    },
-  ],
-};
-const counter = {
-  id: 'counter',
-  beforeDraw(chart: any, args: any, options: any) {
-    const { ctx, chartArea: { top, right, bottom, left, width, height } } = chart;
-    ctx.save();
-    ctx.font = '15px Roboto';
-    ctx.textAlign = 'center';
-    console.log(width / 2);
-    ctx.font = '12px Roboto';
-    ctx.color = "black";
-    ctx.fillText("Total", width / 2, top + (height / 2) - 10);
-    ctx.font = '20px Roboto';
-    ctx.fontStyle = 'bold';
-    ctx.fontWeight = '600';
-    ctx.fillText('240', width / 2, top + (height / 2) + 10);
-    //x0=starting point on the horizontal level l/r
-    //y0=starting point on the vertical level t/b
-    //x1=length of the shape in pixel horizontal level
-    //y1=length of the shape in pixel vertical level
-  }
-};
 const counter1 = {
-  id: 'counter1',
+  id: "counter1",
   beforeDraw(chart: any, args: any, options: any) {
-    const { ctx, chartArea: { top, right, bottom, left, width, height } } = chart;
+    const {
+      ctx,
+      chartArea: { top, right, bottom, left, width, height },
+    } = chart;
     ctx.save();
-    ctx.font = '12px Roboto';
-    ctx.textAlign = 'center';
+    ctx.font = "12px Roboto";
+    ctx.textAlign = "center";
     ctx.color = "black";
-    ctx.fillText('Total', width / 2, top + (height / 2) + 30);
-    ctx.font = '20px Roboto';
-    ctx.fontStyle = 'bold';
-    ctx.fontWeight = '600';
-    ctx.fillText('240', width / 2, top + (height / 2) + 50);
+    ctx.fillText("Total", width / 2, top + height / 2 + 30);
+    ctx.font = "20px Roboto";
+    ctx.fontStyle = "bold";
+    ctx.fontWeight = "600";
+    ctx.fillText("240", width / 2, top + height / 2 + 50);
     //x0=starting point on the horizontal level l/r
     //y0=starting point on the vertical level t/b
     //x1=length of the shape in pixel horizontal level
     //y1=length of the shape in pixel vertical level
-  }
+  },
 };
 const data1 = {
   labels: ["Seller Only", "Buyer Only", "Seller + Buyer"],
@@ -207,6 +157,51 @@ const halfData = {
 };
 
 export default function Information() {
+  const dashboardData = useSelector((state: RootState) => state.dashboard.data);
+  const [transactionOverview, settransactionOverview] = useState({
+    labels: [],
+    values: [],
+  });
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(getDashboardData());
+  }, []);
+
+  useEffect(() => {
+    const newLabels: any = [];
+    const newValues: any = [];
+    dashboardData.liveTransactionValue.map((item) => {
+      newLabels.push(item["legend"]);
+      newValues.push(item["value"]);
+    });
+    settransactionOverview({ labels: newLabels, values: newValues });
+  }, [dashboardData]);
+
+  console.log("Buildddddddddddddddddddddddddddddddddd");
+
+  const overviewData = {
+    labels: transactionOverview.labels,
+    legend: {
+      display: false,
+      position: "bottom",
+      fullSize: false,
+    },
+    datasets: [
+      {
+        label: "# of Votes",
+        data: transactionOverview.values,
+        backgroundColor: [
+          "rgba(24, 87, 141, 1)",
+          "rgba(26, 75, 132, 1)",
+          "rgba(29, 63, 121, 1)",
+          "rgba(134, 221, 212, 1)",
+          "rgba(102, 197, 202, 1)",
+        ],
+      },
+    ],
+  };
+
   function generateDonut(donutData: any) {
     return (
       <Doughnut
@@ -586,4 +581,3 @@ export default function Information() {
     </div>
   );
 }
-

@@ -1,12 +1,14 @@
 import { configureStore } from "@reduxjs/toolkit";
 import TransactionsReducer from "./slices/transactionSlice";
 import MatchesReducer from "./slices/matchesSlice";
-const store = configureStore({
-    reducer: {
-        transactions:TransactionsReducer,
-        matches:MatchesReducer,
+import DashboardReducer from "./slices/dashboardSlice";
 
-    }
+const store = configureStore({
+  reducer: {
+    dashboard: DashboardReducer,
+    transactions: TransactionsReducer,
+    matches: MatchesReducer,
+  },
 });
 
 export default store;
@@ -14,4 +16,3 @@ export default store;
 export type RootState = ReturnType<typeof store.getState>;
 // Inferred type: {posts: PostsState, comments: CommentsState, users: UsersState}
 export type AppDispatch = typeof store.dispatch;
-
