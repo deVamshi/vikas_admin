@@ -17,28 +17,29 @@ const boxShadowStyle = {
 };
 
 const dashboardData = {
-  livetransactionoverview: {
-    tradepending: 200,
+  livetransactionoverview: 
+  {
+  tradepending: 200,
     tradeconfirmed: 200,
-    sellerbooked: 200,
-    transportationtobeassigned: 200,
-    transportationassigned: 200,
-    producetobepicked: 200,
-    producepicked: 200,
-    produceintransit: 200,
-    producedelivered: 200,
+      sellerbooked: 200,
+        transportationtobeassigned: 200,
+          transportationassigned: 200,
+            producetobepicked: 200,
+              producepicked: 200,
+                produceintransit: 200,
+                  producedelivered: 200,
   },
-  vbusers: { selleronly: 300, buyeronly: 300, sellerandbuyer: 300 },
-  alltransactions: { ongoing: 200, pending: 200, completed: 300 },
-  sellerproduce: { yes: 400, no: 200 },
-  totaltransactionvalue: {
-    producetypea: 200,
+vbusers: { selleronly: 300, buyeronly: 300, sellerandbuyer: 300 },
+alltransactions: { ongoing: 200, pending: 200, completed: 300 },
+sellerproduce: { yes: 400, no: 200 },
+totaltransactionvalue: {
+  producetypea: 200,
     producetypeb: 200,
-    producetypec: 200,
-    producetyped: 200,
-    otherproduces: 200,
+      producetypec: 200,
+        producetyped: 200,
+          otherproduces: 200,
   },
-  matchstatus: { buyertoconfirm: 200, sellertoconfirm: 200 },
+matchstatus: { buyertoconfirm: 200, sellertoconfirm: 200 },
 };
 
 const overviewData = {
@@ -80,8 +81,8 @@ const counter = {
     ctx.textAlign = 'center';
     console.log(width / 2);
     ctx.font = '12px Roboto';
-    ctx.color="black";
-    ctx.fillText("Total", width / 2, top + (height / 2)-10);
+    ctx.color = "black";
+    ctx.fillText("Total", width / 2, top + (height / 2) - 10);
     ctx.font = '20px Roboto';
     ctx.fontStyle = 'bold';
     ctx.fontWeight = '600';
@@ -99,7 +100,7 @@ const counter1 = {
     ctx.save();
     ctx.font = '12px Roboto';
     ctx.textAlign = 'center';
-    ctx.color="black";
+    ctx.color = "black";
     ctx.fillText('Total', width / 2, top + (height / 2) + 30);
     ctx.font = '20px Roboto';
     ctx.fontStyle = 'bold';
@@ -156,7 +157,6 @@ const data2 = {
     },
   ],
 };
-
 const matchStatusData = {
   labels: ["Buyer to confirm", "Seller to confirm"],
   legend: {
