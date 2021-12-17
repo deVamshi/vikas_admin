@@ -89,7 +89,7 @@
       color: black !important;
       
     }
-    #rc-tabs-0-tab-2 .ant-tabs-tab-btn {
+    #rc-tabs-0-tab-2.ant-tabs-tab-btn {
       color: black;
       width: 121px;
       height: 20px;
@@ -99,8 +99,18 @@
       font-size: 17px;
       line-height: 140.62%;
     }
-    #rc-tabs-0-tab-1 .ant-tabs-tab-btn {
-      color: white;
+    #rc-tabs-1-tab-1.ant-tabs-tab-btn {
+      color: white !important;
+      width: 121px;
+      height: 20px;
+      font-family: Roboto;
+      font-style: normal;
+      font-weight: 500;
+      font-size: 17px;
+      line-height: 140.62%;
+    }
+    #rc-tabs-2-tab-1.ant-tabs-tab-btn {
+      color: white !important;
       width: 121px;
       height: 20px;
       font-family: Roboto;
