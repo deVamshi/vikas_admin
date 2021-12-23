@@ -1,33 +1,33 @@
-import React from "react";
-// import "./transactions.css";
-import "antd/dist/antd.css";
-import { Tabs, Table, Typography, Space, Button } from "antd";
-import { ColumnsType } from "antd/es/table";
+import 'antd/dist/antd.css';
+import { Tabs, Table, Typography, Space } from 'antd';
+import { ColumnsType } from 'antd/es/table';
 import { CaretDownOutlined } from "@ant-design/icons";
-
+import { getTransactionsDetails } from '../../store/slices/transactionSlice';
+import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { RootState } from "../../store";
 const { TabPane } = Tabs;
-
 interface User {
-  id: string;
-  tags: any;
-  produce: string;
-  tvalue: string;
-  quantity: string;
-  sids: string;
-  buyer: any;
+  ID: string;
+  Status: any;
+  Produce: string;
+  TransactionValue: string;
+  Quantity: string;
+  SellerID: string;
+  Buyer: any;
 }
 
 const columns: ColumnsType<User> = [
   {
     title: "ID",
-    dataIndex: "id",
+    dataIndex: "ID",
   },
   {
-    title: "Status",
-    dataIndex: "tags",
-    render: (tags: any) => (
+    title: 'Status',
+    dataIndex: "Status",
+    render: (Status) => (
       <>
-        {tags.map((tag: any) => {
+        {Status.map((tag: any, i: any, Status: any) => {
           let color: any = "black";
           if (tag === "Pending") {
             color = "#F6A041";
@@ -35,13 +35,18 @@ const columns: ColumnsType<User> = [
           if (tag === "On Going") {
             color = "#12805C";
           }
-          if (tag === "Details") {
-            color = "#4285F4";
+          if (Status.length - 1 == i) {
+            console.log("last element");
             return (
-              <p style={(color = { color })} key={tag}>
-                {tag}
-                <CaretDownOutlined />
-              </p>
+              <>
+                <p style={(color = { color })} key={tag}>
+                  {tag}
+                </p>
+                <a style={(color = { color })}>
+                  {"Details"}
+                  <CaretDownOutlined />
+                </a>
+              </>
             );
           }
           return (
@@ -51,145 +56,70 @@ const columns: ColumnsType<User> = [
           );
         })}
       </>
-    ),
+    )
   },
   {
     title: "Produce",
-    dataIndex: "produce",
+    dataIndex: "Produce"
   },
   {
     title: "Transaction Value",
-    dataIndex: "tvalue",
+    dataIndex: "TransactionValue"
   },
   {
     title: "Quantity",
-    dataIndex: "quantity",
+    dataIndex: "Quantity"
   },
 
   {
     title: "Seller ID",
-    dataIndex: "sids",
-    render: (sids: string) => (
-      <p style={{ color: "blue" }} key={sids}>
-        {sids}
+    dataIndex: "SellerID",
+    render: (SellerID: string) => (
+      <p style={{ color: "blue" }} key={SellerID}>
+        {SellerID}
       </p>
-    ),
+
+    )
   },
   {
     title: "Buyer",
-    dataIndex: "buyer",
-    render: (buyer) => (
+    dataIndex: "Buyer",
+    render: (Buyer) => (
       <>
-        {buyer.map((buy: any) => {
-          return <p key={buy}>{buy}</p>;
-        })}
-      </>
-    ),
-  },
-  /*
-  {
-    title: "Transaction Info",
-    dataIndex: "tinfo",
-    render: (tinfo) => (
-      <>
-        {tinfo.map((ad: any) => {
+        {Buyer.map((buy: any) => {
+
           return (
-            <p key={ad}>
-              {ad}
+            <p key={buy}>
+              {buy}
             </p>
           );
         })}
       </>
     )
   },
-  {
-    title: "Additional Cost",
-    dataIndex: "addcost",
-
-  }
-  */
 ];
-
-const data: User[] = [
-  {
-    id: "T12345",
-    tags: ["Pending", "Seller Accepted", "Details"],
-    produce: "Produce-Verity-Grade",
-    tvalue: "₹41,000",
-    quantity: "20 qtl",
-    sids: "12345",
-    buyer: ["67890", "Mandya"],
-    /*
-    tinfo: ["-"],
-    addcost: "-"
-    */
-  },
-  {
-    id: "T12345",
-    tags: ["Pending", "Seller Accepted", "Details"],
-    produce: "Produce-Verity-Grade",
-    tvalue: "₹41,000",
-    quantity: "20 qtl",
-    sids: "12345",
-    buyer: ["67890", "Mandya"],
-    /*
-    tinfo: ["-"],
-    addcost: "-"
-    */
-  },
-  {
-    id: "T12345",
-    tags: ["On Going", "Produce Booked", "Details"],
-    produce: "Produce-Verity-Grade",
-    tvalue: "₹41,000",
-    quantity: "20 qtl",
-    sids: "12345",
-    buyer: ["67890", "Mandya"],
-    /*
-    tinfo: ["-"],
-    addcost: "Transportation",
-    */
-  },
-  {
-    id: "T12345",
-    tags: ["On Going", "Transporter Assigned", "Details"],
-    produce: "Produce-Verity-Grade",
-    tvalue: "₹41,000",
-    quantity: "20 qtl",
-    sids: "12345",
-    buyer: ["67890", "Mandya"],
-    /*
-    tinfo: ["Transportation", "Details"],
-    addcost: "-",
-    */
-  },
-];
-function Transactions() {
+function App() {
+  const transactionsList = useSelector((state: RootState) => state.transactions.data);
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(getTransactionsDetails())
+  }, [])
   return (
-    <>
-      <Typography.Title level={4} className="title">
-        Live Transaction Details
-      </Typography.Title>
+    <div className="t">
+      <Typography.Title level={4} className="title">Live Transaction Details</Typography.Title>
       <Space> </Space>
-      <Tabs type="card" className="cardd">
+      <Tabs type="card" className="cardd" >
         <TabPane tab="Seller Transactions" key="1" className="seller">
-          <Table<User>
-            columns={columns}
-            dataSource={data}
-            pagination={false}
-            scroll={{ x: 1350 }}
-            rowClassName={(record, index) =>
-              record.tags[0] == "Pending" ? "rowClassName1" : "rowClassName2"
-            }
-          />
+          <Table<User> columns={columns} dataSource={transactionsList} pagination={false} scroll={{ x: 1350 }} rowClassName={(record, index) => (record.Status[0] == "Pending" ? "rowClassName1" : "rowClassName2")} />
           <div className="transactions">
-            <a href="/"> View All Transactions</a>
+            <a href="/" > View All Transactions</a>
           </div>
         </TabPane>
-        <TabPane tab="Buyer Transactions" key="2" className="buyer"></TabPane>
+        <TabPane tab="Buyer Transactions" key="2" className="buyer">
+        </TabPane>
       </Tabs>
-    </>
+    </div>
+
   );
 }
-
-export default Transactions;
+export default App;

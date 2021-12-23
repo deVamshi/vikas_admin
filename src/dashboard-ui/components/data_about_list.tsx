@@ -1,22 +1,31 @@
 import React from "react";
 
-const DataAboutList = () => {
-  function fillLi() {
+interface propType {
+  data: any;
+  colors: Array<any>;
+}
+
+const DataAboutList = (props: propType) => {
+  const { data } = props;
+
+  function fillLi(legend: String, value: Number, color: any) {
     return (
       <li
         style={{
           listStyle: "none",
-          margin: "7px 0px",
+          margin: "5px 0px",
           display: "flex",
           flexDirection: "row",
           alignItems: "center",
+          width: "100%",
+          padding: "0px",
         }}
       >
         <span
           style={{
             height: "15px",
             width: "15px",
-            backgroundColor: "rgba(24, 87, 141, 1)",
+            backgroundColor: color,
             borderRadius: "50%",
             display: "inline-block",
             marginRight: "10px",
@@ -24,22 +33,23 @@ const DataAboutList = () => {
         ></span>
         <span
           style={{
+            flex: "2",
             color: "black",
             fontSize: "14px",
             fontWeight: 500,
-            marginRight: "30px",
           }}
         >
-          Trade Pending
+          {legend}
         </span>
         <span
           style={{
             color: "black",
             fontSize: "14px",
             fontWeight: 500,
+            marginLeft: "20px",
           }}
         >
-          50
+          {value}
         </span>
       </li>
     );
@@ -50,7 +60,7 @@ const DataAboutList = () => {
       style={{
         display: "flex",
         marginLeft: "20px",
-        // alignItems: "stretch",
+        justifyItems: "start",
       }}
     >
       <div className="vl" style={{ alignSelf: "center" }}></div>
@@ -59,12 +69,13 @@ const DataAboutList = () => {
           display: "flex",
           flexDirection: "column",
           verticalAlign: "middle",
-          alignItems: "center",
+          alignItems: "start",
         }}
       >
-        {fillLi()}
-        {fillLi()}
-        {fillLi()}
+        {data &&
+          data.map((item: any, index: any) =>
+            fillLi(item["legend"], item["value"], props.colors[index])
+          )}
       </ul>
     </div>
   );
