@@ -45,13 +45,13 @@ const columns: ColumnsType<User> = [
         title: 'Seller ID',
         key: 'SellerID',
         dataIndex: 'SellerID',
-        render: (SellerID: Number) => <p style={{ color: "blue" }} >{SellerID}</p>,
+        render: (SellerID: Number) => <p>{SellerID}</p>,
     },
     {
         title: 'Buyer ID',
         key: 'BuyerID',
         dataIndex: 'BuyerID',
-        render: (BuyerID: String) => <p style={{ color: "blue" }} >{BuyerID}</p>,
+        render: (BuyerID: String) => <p>{BuyerID}</p>,
 
     },
     {
@@ -81,13 +81,17 @@ export default function App() {
             <Typography.Title level={4} className="title1">Current Matches</Typography.Title>
             <Space> </Space>
             <Tabs type="card" className="cardd">
-                <TabPane tab="Seller Matches" key="1" className="seller">
+                <TabPane tab="Seller Matches" key="1">
                     <Table columns={columns} dataSource={MatchesList} pagination={false} scroll={{ x: 1800 }} />
                     <div className="transactions">
                         <a href="/">View all Matches</a>
                     </div>
                 </TabPane>
-                <TabPane tab="Buyer Matches" key="2" className="buyer">
+                <TabPane tab="Buyer Matches" key="2">
+                    <Table columns={columns} pagination={false} scroll={{ x: 1800 }} />
+                    <div className="transactions">
+                        <a href="/">View all Matches</a>
+                    </div>
                 </TabPane>
             </Tabs>
         </div>

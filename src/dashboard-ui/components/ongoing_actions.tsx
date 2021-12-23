@@ -1,6 +1,7 @@
 import React from "react";
 import { Table, Tag, Space, Row, Col } from "antd";
 
+
 const OngoingActions = () => {
   const decideHtml = (text: string) => {
     if (text == "To be verified") {
@@ -127,7 +128,12 @@ const OngoingActions = () => {
       ),
     },
   ];
-  return <Table columns={columns} dataSource={newData} />;
+  return (
+    <>
+    
+  <Table columns={columns} dataSource={newData} />
+  </>
+  );
 };
 
 export default OngoingActions;

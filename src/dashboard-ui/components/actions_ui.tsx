@@ -2,6 +2,7 @@ import React from "react";
 
 import { Tabs } from "antd";
 import OngoingActions from "./ongoing_actions";
+
 const { TabPane } = Tabs;
 
 const ActionsUI = () => {

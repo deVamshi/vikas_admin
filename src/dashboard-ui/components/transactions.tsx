@@ -1,3 +1,5 @@
+
+import React from 'react';
 import 'antd/dist/antd.css';
 import { Tabs, Table, Typography, Space } from 'antd';
 import { ColumnsType } from 'antd/es/table';
@@ -36,7 +38,6 @@ const columns: ColumnsType<User> = [
             color = "#12805C";
           }
           if (Status.length - 1 == i) {
-            console.log("last element");
             return (
               <>
                 <p style={(color = { color })} key={tag}>
@@ -75,7 +76,7 @@ const columns: ColumnsType<User> = [
     title: "Seller ID",
     dataIndex: "SellerID",
     render: (SellerID: string) => (
-      <p style={{ color: "blue" }} key={SellerID}>
+      <p key={SellerID}>
         {SellerID}
       </p>
 
@@ -109,13 +110,17 @@ function App() {
       <Typography.Title level={4} className="title">Live Transaction Details</Typography.Title>
       <Space> </Space>
       <Tabs type="card" className="cardd" >
-        <TabPane tab="Seller Transactions" key="1" className="seller">
+        <TabPane tab="Seller Transactions" key="1" >
           <Table<User> columns={columns} dataSource={transactionsList} pagination={false} scroll={{ x: 1350 }} rowClassName={(record, index) => (record.Status[0] == "Pending" ? "rowClassName1" : "rowClassName2")} />
           <div className="transactions">
             <a href="/" > View All Transactions</a>
           </div>
         </TabPane>
-        <TabPane tab="Buyer Transactions" key="2" className="buyer">
+        <TabPane tab="Buyer Transactions" key="2" >
+          <Table<User> columns={columns} style={{ width: 1300 }} pagination={false} scroll={{ x: 1350 }} rowClassName={(record, index) => (record.Status[0] == "Pending" ? "rowClassName1" : "rowClassName2")} />
+          <div className="transactions">
+            <a href="/" > View All Transactions</a>
+          </div>
         </TabPane>
       </Tabs>
     </div>

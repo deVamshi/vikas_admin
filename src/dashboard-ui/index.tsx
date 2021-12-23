@@ -2,8 +2,8 @@ import React from "react";
 import Information from "./components/information";
 import { Tabs } from "antd";
 import ActionsUI from "./components/actions_ui";
-import Transactions from "./components/transactions";
-import Matches from "./components/matches";
+// import Transactions from "./components/transactions";
+// import Matches from "./components/matches";
 import { PageHeader, Button, Descriptions } from "antd";
 import { Typography } from "antd";
 const { Title } = Typography;
@@ -65,8 +65,8 @@ const Dashboard = () => {
           <ActionsUI />
         </TabPane>
       </Tabs>
-      <Transactions />
-      <Matches />
+      {/* <Transactions />
+      <Matches /> */}
     </div>
   );
 };

@@ -1,4 +1,3 @@
-
 export const fetchTransactionsDetails = async () => {
   const res = await fetch(
     " https://snkajst53g.execute-api.us-east-2.amazonaws.com/default/sellertransactions"
