@@ -16,24 +16,24 @@ import Dashboard from "./dashboard-ui";
 import { useEffect, useState } from "react";
 // const { Header, Content } = Layout;
 function App() {
-
   if (isMobile) return <h4>Mobile view not supported(yet)</h4>;
-  
-  return;
-  <Router>
-    <div className="App">
-      <Affix>
-        <AppHeader />
-      </Affix>
-      <Routes>
-        <Route path="/" element={<Dashboard />} />
-        {/* <Route path="/transactions" exact component={Transactions}/>
+
+  return (
+    <Router>
+      <div className="App">
+        <Affix>
+          <AppHeader />
+        </Affix>
+        <Routes>
+          <Route path="/" element={<Dashboard />} />
+          {/* <Route path="/transactions" exact component={Transactions}/>
         <Route path="/matches" exact component={Matches}/>
         <Route path="/users" exact component={Users}/>
         <Route path="/produces" exact component={Produces}/> */}
-      </Routes>
-    </div>
-  </Router>;
+        </Routes>
+      </div>
+    </Router>
+  );
 }
 
 export default App;
