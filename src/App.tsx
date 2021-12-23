@@ -27,7 +27,8 @@ function App() {
     };
   }, []);
 
-  const isMobile = width <= 768;
+  const isMobile = width <= 1000;
+  
   return !isMobile ? (
     <Router>
       <div className="App">
