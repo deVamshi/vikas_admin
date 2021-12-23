@@ -1,11 +1,11 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
-import { fetchMatchesDetails } from "../api";
+import { fetchDashboardData, fetchMatchesDetails } from "../api";
 
 export const getDashboardData = createAsyncThunk(
   "getDashboardData",
   async () => {
-    // const res = fetchMatchesDetails();
-    return dummyDashboardData;
+    const res = await fetchDashboardData();
+    return res;
   }
 );
 
@@ -16,6 +16,7 @@ const initialState = {
     allTransactions: [],
     sellerProduce: [],
     totalTransactionValue: [],
+    matchStatus: [],
   },
 };
 
@@ -25,14 +26,14 @@ const dashboardSlice = createSlice({
   reducers: {},
   extraReducers: (builder) => {
     builder.addCase(getDashboardData.fulfilled, (state, action) => {
-      state.data.liveTransactionValue =
-        action.payload["livetransactionoverview"];
-      state.data.vbUsers = action.payload["vbusers"];
-      state.data.allTransactions = action.payload["AllTransactions"];
-      state.data.sellerProduce = action.payload["sellerproduce"];
-      state.data.totalTransactionValue =
-        action.payload["totaltransactionvalue"];
-
+      state.data = {
+        liveTransactionValue: action.payload["livetransactionoverview"],
+        vbUsers: action.payload["vbusers"],
+        allTransactions: action.payload["AllTransactions"],
+        sellerProduce: action.payload["sellerproduce"],
+        totalTransactionValue: action.payload["totaltransactionvalue"],
+        matchStatus: action.payload["matchstatus"],
+      };
     });
   },
 });
@@ -42,13 +43,13 @@ export default dashboardSlice.reducer;
 // Need to be removed later
 const dummyDashboardData: any = {
   livetransactionoverview: [
-    { legend: "Trade Pending", value: 777 },
-    { legend: "Trade Confirmed", value: 777 },
-    { legend: "Seller Booked", value: 777 },
-    { legend: "Transportation to be Assigned", value: 777 },
-    { legend: "Transportation Assigned", value: 777 },
-    { legend: "Produce to be Picked", value: 777 },
-    { legend: "Produce Picked", value: 777 },
+    { legend: "Trade Pending", value: 200 },
+    { legend: "Trade Confirmed", value: 200 },
+    { legend: "Seller Booked", value: 200 },
+    { legend: "Transportation to be Assigned", value: 200 },
+    { legend: "Transportation Assigned", value: 200 },
+    { legend: "Produce to be Picked", value: 200 },
+    { legend: "Produce Picked", value: 200 },
     { legend: "Produce in Transit", value: 200 },
     { legend: "Produce Delivered", value: 200 },
   ],
@@ -72,5 +73,9 @@ const dummyDashboardData: any = {
     { legend: "Produce Type C", value: 200 },
     { legend: "Produce Type D", value: 200 },
     { legend: "Other Produces", value: 200 },
+  ],
+  matchstatus: [
+    { legend: "Buyer to confirm", value: 200 },
+    { legend: "Seller to confirm", value: 200 },
   ],
 };

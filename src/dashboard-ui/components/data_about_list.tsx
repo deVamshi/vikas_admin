@@ -2,6 +2,7 @@ import React from "react";
 
 interface propType {
   data: any;
+  colors: Array<any>;
 }
 
 const DataAboutList = (props: propType) => {
@@ -12,11 +13,12 @@ const DataAboutList = (props: propType) => {
       <li
         style={{
           listStyle: "none",
-          margin: "7px 0px",
+          margin: "5px 0px",
           display: "flex",
           flexDirection: "row",
           alignItems: "center",
           width: "100%",
+          padding: "0px",
         }}
       >
         <span
@@ -71,8 +73,8 @@ const DataAboutList = (props: propType) => {
         }}
       >
         {data &&
-          data.map((item: any) =>
-            fillLi(item["legend"], item["value"], item["background"])
+          data.map((item: any, index: any) =>
+            fillLi(item["legend"], item["value"], props.colors[index])
           )}
       </ul>
     </div>

@@ -1,5 +1,4 @@
 import React from "react";
-// import "./styles.css";
 import Information from "./components/information";
 import { Tabs } from "antd";
 import ActionsUI from "./components/actions_ui";
