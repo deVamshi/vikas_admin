@@ -1,6 +1,6 @@
 import { ColumnsType } from 'antd/es/table';
 import 'antd/dist/antd.css';
-import { Tabs, Typography } from 'antd';
+import { Tabs, Typography, Spin } from 'antd';
 import { Table, Tag, Space } from 'antd';
 import { getMatchesDetails } from '../../store/slices/matchesSlice';
 import { useEffect } from "react";
@@ -82,16 +82,20 @@ export default function App() {
             <Space> </Space>
             <Tabs type="card" className="cardd">
                 <TabPane tab="Seller Matches" key="1">
-                    <Table columns={columns} dataSource={MatchesList} pagination={false} scroll={{ x: 1800 }} />
-                    <div className="transactions">
-                        <a href="/">View all Matches</a>
-                    </div>
+                    {MatchesList.length !== 0 ?
+                        <><Table columns={columns} dataSource={MatchesList} pagination={false} scroll={{ x: 1800 }} />
+                            <div className="transactions">
+                                <a href="/">View all Matches</a>
+                            </div>
+                        </> : <div style={{ textAlign: "center", fontSize: "25px", marginTop: "120px" }}>Fetching....</div>}
                 </TabPane>
                 <TabPane tab="Buyer Matches" key="2">
-                    <Table columns={columns} pagination={false} scroll={{ x: 1800 }} />
-                    <div className="transactions">
-                        <a href="/">View all Matches</a>
-                    </div>
+                    {MatchesList.length !== 0 ? <>
+                        <Table columns={columns} dataSource={MatchesList} pagination={false} scroll={{ x: 1800 }} />
+                        <div className="transactions">
+                            <a href="/">View all Matches</a>
+                        </div>
+                    </> : <div style={{ textAlign: "center", fontSize: "25px", marginTop: "120px" }}>Fetching....</div>}
                 </TabPane>
             </Tabs>
         </div>

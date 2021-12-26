@@ -2,12 +2,14 @@ import { configureStore } from "@reduxjs/toolkit";
 import TransactionsReducer from "./slices/transactionSlice";
 import MatchesReducer from "./slices/matchesSlice";
 import DashboardReducer from "./slices/dashboardSlice";
+import UsersReducer from "./slices/usersSlice";
 
 const store = configureStore({
   reducer: {
     dashboard: DashboardReducer,
     transactions: TransactionsReducer,
     matches: MatchesReducer,
+    users: UsersReducer,
   },
 });
 

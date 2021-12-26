@@ -144,12 +144,7 @@ export default function Information() {
                 ]}
               />
 
-              <Anchor
-                onClick={dummy}
-                targetOffset={80}
-                affix={false}
-                className="scroll"
-              >
+              <Anchor onClick={transactions} targetOffset={110} affix={false} className="scroll">
                 <Link href="#transactionsDiv" title="View Details" />
               </Anchor>
             </Card>
@@ -165,12 +160,7 @@ export default function Information() {
                 chartData={sellerProduce}
                 colors={["rgba(73, 108, 206, 1)", "rgba(217, 228, 237, 1)"]}
               />
-              <Anchor
-                onClick={dummy}
-                targetOffset={80}
-                affix={false}
-                className="scroll"
-              >
+              <Anchor onClick={dummy} targetOffset={110} affix={false} className="scroll">
                 <Link href="#transactionsDiv" title="View Details" />
               </Anchor>
             </Card>
@@ -192,12 +182,7 @@ export default function Information() {
                   "rgba(198, 78, 115, 1)",
                 ]}
               />
-              <Anchor
-                onClick={dummy}
-                targetOffset={80}
-                affix={false}
-                className="scroll"
-              >
+              <Anchor onClick={dummy} targetOffset={110} affix={false} className="scroll" style={{ visibility: "hidden" }}>
                 <Link href="#transactionsDiv" title="View Details" />
               </Anchor>
             </Card>

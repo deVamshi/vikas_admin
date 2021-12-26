@@ -24,3 +24,11 @@ export const fetchDashboardData = async () => {
   const data = await res.json();
   return data;
 };
+export const fetchUsersDetails = async () => {
+  const res = await fetch(
+    "https://6194bhpuwb.execute-api.us-east-1.amazonaws.com/test/vbusers"
+  );
+  if (!res.ok) return [];
+  const data = await res.json();
+  return data.scanResults;
+};

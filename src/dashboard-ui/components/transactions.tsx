@@ -9,7 +9,7 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../../store";
 const { TabPane } = Tabs;
-interface User {
+interface Sellertransac {
   ID: string;
   Status: any;
   Produce: string;
@@ -18,8 +18,7 @@ interface User {
   SellerID: string;
   Buyer: any;
 }
-
-const columns: ColumnsType<User> = [
+const columns: ColumnsType<Sellertransac> = [
   {
     title: "ID",
     dataIndex: "ID",
@@ -99,28 +98,99 @@ const columns: ColumnsType<User> = [
     )
   },
 ];
+const columns1: ColumnsType<Sellertransac> = [
+  {
+    title: "ID",
+    dataIndex: "ID",
+  },
+  {
+    title: 'Status',
+    dataIndex: "Status",
+    render: (Status) => (
+      <>
+        {Status.map((tag: any, i: any, Status: any) => {
+          let color: any = "black";
+          if (tag === "Pending") {
+            color = "#F6A041";
+          }
+          if (tag === "On Going") {
+            color = "#12805C";
+          }
+          if (Status.length - 1 == i) {
+            return (
+              <>
+                <p style={(color = { color })} key={tag}>
+                  {tag}
+                </p>
+                <a style={(color = { color })}>
+                  {"Details"}
+                  <CaretDownOutlined />
+                </a>
+              </>
+            );
+          }
+          return (
+            <p style={(color = { color })} key={tag}>
+              {tag}
+            </p>
+          );
+        })}
+      </>
+    )
+  },
+  {
+    title: "Produce",
+    dataIndex: "Produce"
+  },
+  {
+    title: "Transaction Value",
+    dataIndex: "TransactionValue"
+  },
+  {
+    title: "Quantity",
+    dataIndex: "Quantity"
+  },
+
+  {
+    title: "Buyer ID",
+    dataIndex: "SellerID",
+    render: (SellerID: string) => (
+      <p key={SellerID}>
+        {SellerID}
+      </p>
+
+    )
+  },
+  
+];
 function App() {
   const transactionsList = useSelector((state: RootState) => state.transactions.data);
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(getTransactionsDetails())
   }, [])
+
+
   return (
     <div className="t">
       <Typography.Title level={4} className="title">Live Transaction Details</Typography.Title>
       <Space> </Space>
       <Tabs type="card" className="cardd" >
         <TabPane tab="Seller Transactions" key="1" >
-          <Table<User> columns={columns} dataSource={transactionsList} pagination={false} scroll={{ x: 1350 }} rowClassName={(record, index) => (record.Status[0] == "Pending" ? "rowClassName1" : "rowClassName2")} />
-          <div className="transactions">
-            <a href="/" > View All Transactions</a>
-          </div>
+          {transactionsList.length !== 0 ? <>
+            <Table<Sellertransac> columns={columns} dataSource={transactionsList} pagination={false} scroll={{ x: 1350 }} rowClassName={(record, index) => (record.Status[0] == "Pending" ? "rowClassName1" : "rowClassName2")} />
+            <div className="transactions">
+              <a href="/" > View All Transactions</a>
+            </div>
+          </> : <div style={{ textAlign: "center", fontSize: "25px", marginTop: "120px" }}>Fetching....</div>}
         </TabPane>
         <TabPane tab="Buyer Transactions" key="2" >
-          <Table<User> columns={columns} style={{ width: 1300 }} pagination={false} scroll={{ x: 1350 }} rowClassName={(record, index) => (record.Status[0] == "Pending" ? "rowClassName1" : "rowClassName2")} />
-          <div className="transactions">
-            <a href="/" > View All Transactions</a>
-          </div>
+          {transactionsList.length !== 0 ? <>
+            <Table<Sellertransac> columns={columns1} dataSource={transactionsList} style={{ width: 1300 }} pagination={false} scroll={{ x: 1350 }} rowClassName={(record, index) => (record.Status[0] == "Pending" ? "rowClassName1" : "rowClassName2")} />
+            <div className="transactions">
+              <a href="/" > View All Transactions</a>
+            </div>
+          </> : <div style={{ textAlign: "center", fontSize: "25px", marginTop: "120px" }}>Fetching....</div>}
         </TabPane>
       </Tabs>
     </div>

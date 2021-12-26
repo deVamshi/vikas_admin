@@ -1,5 +1,5 @@
-// import { BrowserRouter as Router } from "react-router-dom";
 import { Affix } from "antd";
+import "./dashboard-ui/dashboard.scss";
 import "./App.scss";
 import AppHeader from "./components/common/AppHeader";
 import Register from "./components/register/Register";
