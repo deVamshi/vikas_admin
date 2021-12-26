@@ -6,7 +6,7 @@ const { Title } = Typography;
 function RegisterHeader() {
   return (
     <div>
-      <Title level={3} style={{ fontWeight: 700 }}>
+      <Title level={3} style={{ fontWeight: 700, marginTop: 80 }}>
         VikasBandhu
       </Title>
       <Title

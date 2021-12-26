@@ -26,22 +26,22 @@ export default function Information() {
     setShowTransactions(true);
     setShowMatches(false);
     setShowUsers(false);
-  }
+  };
   const matches = () => {
     setShowTransactions(false);
     setShowMatches(true);
     setShowUsers(false);
-  }
+  };
   const dummy = () => {
     setShowTransactions(false);
     setShowMatches(false);
     setShowUsers(false);
-  }
+  };
   const user = () => {
     setShowTransactions(false);
     setShowMatches(false);
     setShowUsers(true);
-  }
+  };
   const {
     liveTransactionValue,
     allTransactions,
@@ -74,7 +74,7 @@ export default function Information() {
   return (
     <>
       <div>
-        <Row gutter={[32, 32]} style={{ padding: "10px" }}>
+        <Row gutter={[20, 20]} style={{ padding: "10px" }}>
           <Col span={24}>
             <Card
               style={boxShadowStyle}
@@ -96,7 +96,12 @@ export default function Information() {
                   "rgba(73, 173, 191, 1)",
                 ]}
               />
-              <Anchor onClick={transactions} targetOffset={110} affix={false} className="scroll">
+              <Anchor
+                onClick={transactions}
+                targetOffset={110}
+                affix={false}
+                className="scroll"
+              >
                 <Link href="#transactionsDiv" title="View Details" />
               </Anchor>
             </Card>
@@ -112,7 +117,12 @@ export default function Information() {
                   "rgba(51, 67, 76, 1)",
                 ]}
               />
-              <Anchor onClick={user} targetOffset={110} affix={false} className="scroll">
+              <Anchor
+                onClick={user}
+                targetOffset={110}
+                affix={false}
+                className="scroll"
+              >
                 <Link href="#transactionsDiv" title="View Details" />
               </Anchor>
             </Card>
@@ -122,7 +132,7 @@ export default function Information() {
             <Card
               title="All Transactions"
               style={boxShadowStyle}
-              extra={buildSelector(allTransactions)}
+              // extra={buildSelector(allTransactions)}
             >
               <InfoDetails
                 isHalfDonut={false}
@@ -134,7 +144,12 @@ export default function Information() {
                 ]}
               />
 
-              <Anchor onClick={dummy} targetOffset={80} affix={false} className="scroll">
+              <Anchor
+                onClick={dummy}
+                targetOffset={80}
+                affix={false}
+                className="scroll"
+              >
                 <Link href="#transactionsDiv" title="View Details" />
               </Anchor>
             </Card>
@@ -143,14 +158,19 @@ export default function Information() {
             <Card
               title="Seller Produce: Intent to Sell Status"
               style={boxShadowStyle}
-              extra={buildSelector(sellerProduce)}
+              // extra={buildSelector(sellerProduce)}
             >
               <InfoDetails
                 isHalfDonut={false}
                 chartData={sellerProduce}
                 colors={["rgba(73, 108, 206, 1)", "rgba(217, 228, 237, 1)"]}
               />
-              <Anchor onClick={dummy} targetOffset={80} affix={false} className="scroll">
+              <Anchor
+                onClick={dummy}
+                targetOffset={80}
+                affix={false}
+                className="scroll"
+              >
                 <Link href="#transactionsDiv" title="View Details" />
               </Anchor>
             </Card>
@@ -172,7 +192,12 @@ export default function Information() {
                   "rgba(198, 78, 115, 1)",
                 ]}
               />
-              <Anchor onClick={dummy} targetOffset={80} affix={false} className="scroll">
+              <Anchor
+                onClick={dummy}
+                targetOffset={80}
+                affix={false}
+                className="scroll"
+              >
                 <Link href="#transactionsDiv" title="View Details" />
               </Anchor>
             </Card>
@@ -181,21 +206,26 @@ export default function Information() {
             <Card
               title="Match Status"
               style={boxShadowStyle}
-              extra={buildSelector(matchStatus)}
+              // extra={buildSelector(matchStatus)}
             >
               <InfoDetails
                 isHalfDonut={false}
                 chartData={matchStatus}
                 colors={["rgba(231, 222, 212, 1)", "rgba(218, 76, 98, 1)"]}
               />
-              <Anchor onClick={matches} targetOffset={110} affix={false} className="scroll">
+              <Anchor
+                onClick={matches}
+                targetOffset={110}
+                affix={false}
+                className="scroll"
+              >
                 <Link href="#transactionsDiv" title="View Details" />
               </Anchor>
             </Card>
           </Col>
         </Row>
       </div>
-      <div id="transactionsDiv" >
+      <div id="transactionsDiv">
         {showTransactions ? <Transactions /> : null}
         {showMatches ? <Matches /> : null}
         {showUsers ? <Users /> : null}

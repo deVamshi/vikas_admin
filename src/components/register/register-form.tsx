@@ -2,7 +2,7 @@ import { Form, Input, Button, Col, Row, Typography, Checkbox } from "antd";
 const { Title, Text } = Typography;
 function RegisterForm() {
   return (
-    <div className="register-form-container">
+    <div className="register-form-container" >
       <Form layout="vertical">
         <Row gutter={93}>
           <Col className="gutter-row" span={12}>
@@ -100,7 +100,7 @@ function RegisterForm() {
           >
             I certify that the information submitted above is true and correct
             to the best of my knowledge. I further understand that any false
-            statements m  ay result in denial or revocation of the services
+            statements m ay result in denial or revocation of the services
           </Checkbox>
         </Form.Item>
 

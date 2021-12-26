@@ -22,35 +22,13 @@ const DataAboutList = (props: propType) => {
         }}
       >
         <span
+          className="data-dot"
           style={{
-            height: "15px",
-            width: "15px",
             backgroundColor: color,
-            borderRadius: "50%",
-            display: "inline-block",
-            marginRight: "10px",
           }}
         ></span>
-        <span
-          style={{
-            flex: "2",
-            color: "black",
-            fontSize: "14px",
-            fontWeight: 500,
-          }}
-        >
-          {legend}
-        </span>
-        <span
-          style={{
-            color: "black",
-            fontSize: "14px",
-            fontWeight: 500,
-            marginLeft: "20px",
-          }}
-        >
-          {value}
-        </span>
+        <span className="data-legend">{legend}</span>
+        <span className="data-value">{value}</span>
       </li>
     );
   }
@@ -60,16 +38,19 @@ const DataAboutList = (props: propType) => {
       style={{
         display: "flex",
         marginLeft: "20px",
+        marginRight: "0px",
         justifyItems: "start",
       }}
     >
-      <div className="vl" style={{ alignSelf: "center" }}></div>
+      <div className="vl" style={{ alignSelf: "center", margin: "0px" }}></div>
       <ul
         style={{
           display: "flex",
           flexDirection: "column",
           verticalAlign: "middle",
           alignItems: "start",
+          margin: "0px",
+          paddingLeft: "15px",
         }}
       >
         {data &&

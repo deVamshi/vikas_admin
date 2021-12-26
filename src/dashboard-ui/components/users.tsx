@@ -8,6 +8,7 @@ import { getTransactionsDetails } from '../../store/slices/transactionSlice';
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../../store";
+
 const { TabPane } = Tabs;
 interface User {
     ID: string;

@@ -2,10 +2,10 @@ import React from "react";
 import Information from "./components/information";
 import { Tabs } from "antd";
 import ActionsUI from "./components/actions_ui";
-// import Transactions from "./components/transactions";
-// import Matches from "./components/matches";
+
 import { PageHeader, Button, Descriptions } from "antd";
 import { Typography } from "antd";
+
 const { Title } = Typography;
 const { TabPane } = Tabs;
 const Dashboard = () => {
@@ -55,7 +55,7 @@ const Dashboard = () => {
         defaultActiveKey="1"
         type="card"
         style={{
-          padding: "20px 75px",
+          padding: "10px 75px",
         }}
       >
         <TabPane tab="Information" key="1">
@@ -65,8 +65,6 @@ const Dashboard = () => {
           <ActionsUI />
         </TabPane>
       </Tabs>
-      {/* <Transactions />
-      <Matches /> */}
     </div>
   );
 };

@@ -38,14 +38,16 @@ function InfoDetails(props: PropType) {
       ctx.fillText(`${0}`, width / 2, top + height / 2 + decideH2());
     },
   });
+  const [width, setWidth] = useState<number>(window.innerWidth);
 
   for (let i = 0; i < totalCols - 1; i++) uselessMap.push(i);
 
   const decideH1 = () => {
-    return isHalfDonut ? 30 : -10;
+    return isHalfDonut ? 30 : -5;
   };
+
   const decideH2 = () => {
-    return isHalfDonut ? 50 : 10;
+    return isHalfDonut ? 45 : 15;
   };
 
   const calculateTotal = (data: any) => {
@@ -55,28 +57,6 @@ function InfoDetails(props: PropType) {
     });
     return total;
   };
-
-  function counterTemplate(count: any) {
-    return {
-      id: "counter",
-      beforeDraw(chart: any, args: any, options: any) {
-        const {
-          ctx,
-          chartArea: { top, right, bottom, left, width, height },
-        } = chart;
-        ctx.save();
-        ctx.font = "15px Roboto";
-        ctx.textAlign = "center";
-        ctx.font = "12px Roboto";
-        ctx.color = "black";
-        ctx.fillText("Total", width / 2, top + height / 2 + decideH1());
-        ctx.font = "20px Roboto";
-        ctx.fontStyle = "bold";
-        ctx.fontWeight = "600";
-        ctx.fillText(`${count}`, width / 2, top + height / 2 + decideH2());
-      },
-    };
-  }
 
   const donutData = {
     labels: chartValues.labels,
@@ -113,10 +93,10 @@ function InfoDetails(props: PropType) {
         ctx.save();
         ctx.font = "15px Roboto";
         ctx.textAlign = "center";
-        ctx.font = "12px Roboto";
+        ctx.font = "10px Roboto";
         ctx.color = "black";
         ctx.fillText("Total", width / 2, top + height / 2 + decideH1());
-        ctx.font = "20px Roboto";
+        ctx.font = "16px Roboto";
         ctx.fontStyle = "bold";
         ctx.fontWeight = "600";
         ctx.fillText(`${totalCount}`, width / 2, top + height / 2 + decideH2());
@@ -124,12 +104,26 @@ function InfoDetails(props: PropType) {
     });
   }, [chartData]);
 
-  function generateDonut(donutData: any, totalCount: any) {
+  function handleWindowSizeChange() {
+    console.log(window.innerWidth);
+    setWidth(window.innerWidth);
+  }
+
+  useEffect(() => {
+    window.addEventListener("resize", handleWindowSizeChange);
+    return () => {
+      window.removeEventListener("resize", handleWindowSizeChange);
+    };
+  }, []);
+
+  const isInTab = width < 1024;
+
+  function generateDonut(donutData: any, totalCount: any, size: any) {
     return (
       <Doughnut
         data={donutData}
-        width={130}
-        height={130}
+        width={size}
+        height={size}
         plugins={[counter]}
         options={{
           rotation: isHalfDonut ? -90 : undefined,
@@ -148,8 +142,8 @@ function InfoDetails(props: PropType) {
   return chartValues.labels.length !== 0 ? (
     <div>
       <Row align="middle">
-        <Col span={widthOfEachCol - 1}>
-          {generateDonut(donutData, totalCount)}
+        <Col span={widthOfEachCol - 2}>
+          {generateDonut(donutData, totalCount, 100)}
         </Col>
         {uselessMap.map((x, i) => {
           return (
