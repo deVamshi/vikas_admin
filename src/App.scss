@@ -1,5 +1,64 @@
-/* Header */
+// Header
 @import url("https://fonts.googleapis.com/css2?family=Montserrat&display=swap");
+@media only screen and (max-width: 720px) {
+  /* For mobile phones: */
+  .header-breadcrumb {
+    color: black;
+    align-content: center;
+    width: 25rem !important;
+    height: 3rem;
+    font-size: 1rem !important;
+    align-items: center;
+    padding-top: 1.2rem;
+  }
+  .left-text-first {
+    font-size: 10px !important;
+  }
+  .standard-bar {
+    font-size: 12px !important;
+  }
+  .landing-page-header-bar {
+    background: #ffffff;
+    display: flex;
+    flex-direction: row;
+    height: 4rem !important;
+    width: 100%;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.16);
+    position: absolute;
+    z-index: 1;
+  }
+  .col-2-2-2 {
+    flex-basis: 30%;
+    padding-top: 0.5rem !important;
+    align-items: center;
+    align-content: center;
+    text-align: right;
+    top: 20%;
+  }
+  .logo {
+    padding-left: 1px;
+
+    width: 3.8rem !important;
+    height: 3rem !important;
+    float: left;
+  }
+  .col-2 {
+    display: flex;
+    flex-direction: row;
+    flex-basis: 20% !important;
+  }
+  .col-22 {
+    display: flex;
+    flex-direction: row;
+    flex-basis: 80% !important;
+  }
+  .ant-breadcrumb-separator {
+    margin: 0 4px;
+    color: rgba(0, 0, 0, 0.45);
+  }
+}
 .navbar {
   z-index: 500;
   top: 0px;
@@ -7,10 +66,11 @@
   left: 0px;
   display: flex;
   background-color: #ffffff;
-  box-shadow: 0px 4px 4px 0 rgba(0, 0, 0, 0.25);
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   align-items: center;
   height: 80px;
 }
+
 .ant-anchor {
   display: flex;
   padding-left: 1rem;
@@ -99,6 +159,7 @@ a:focus::after {
   border-radius: 10;
   left: 0;
   bottom: 0;
+
   background: #12805c;
 }
 .item {
@@ -112,6 +173,11 @@ a:focus::after {
   display: flex;
   flex-direction: row;
   flex-basis: 50%;
+}
+.col-22 {
+  display: flex;
+  flex-direction: row;
+  flex-basis: 50% !important;
 }
 .col-2-2 {
   flex-direction: row-reverse;
@@ -167,14 +233,15 @@ a:focus::after {
   flex-direction: row;
   height: fit-content;
   width: 100%;
-  padding-left: 1.3rem;
-  padding-right: 1.5rem;
-  box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.16);
+  padding-left: 1rem;
+  padding-right: 1rem;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.16);
   position: absolute;
   z-index: 1;
 
   .logo {
-    padding-left: 10px;
+    padding-left: 1px;
+
     width: 4.8rem;
     height: 3.3rem;
     float: left;
@@ -235,10 +302,6 @@ a:focus::after {
 .ant-breadcrumb > span:last-child .ant-breadcrumb-separator {
   display: none;
 }
-.ant-breadcrumb-separator {
-  margin: 0 8px;
-  color: rgba(0, 0, 0, 0.45);
-}
 .ant-breadcrumb-link > .anticon + span,
 .ant-breadcrumb-link > .anticon + a {
   margin-left: 4px;
@@ -270,7 +333,34 @@ a:focus::after {
   margin-right: 4px;
   margin-left: 0;
 }
-/* Details */
+// Details
+@media only screen and (max-width: 720px) {
+  .cid {
+    display: inline-block;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 8px !important;
+    line-height: 16px;
+    align-items: center;
+    text-align: right;
+
+    color: #4e4e4e;
+  }
+  .cname {
+    display: inline-block;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 100 !important;
+    font-size: 14px !important;
+    line-height: 19px;
+    /* identical to box height */
+    align-items: center;
+    text-align: right;
+
+    color: #000000;
+  }
+}
 .details {
   margin: 0;
   position: relative;
@@ -291,16 +381,18 @@ a:focus::after {
 
   color: #4e4e4e;
 }
-.cname{
-font-family: Roboto;
-font-style: normal;
-font-weight: 500;
-font-size: 16px;
-line-height: 19px;
-/* identical to box height */
-align-items: center;
-text-align: right;
-color: #000000;
+.cname {
+  display: inline-block;
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 19px;
+  /* identical to box height */
+  align-items: center;
+  text-align: right;
+
+  color: #000000;
 }
 .row-2-70 {
   flex-basis: 70%;

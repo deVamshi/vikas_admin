@@ -1,7 +1,6 @@
 import React from "react";
 import { Table, Tag, Space, Row, Col } from "antd";
 
-
 const OngoingActions = () => {
   const decideHtml = (text: string) => {
     if (text == "To be verified") {
@@ -109,12 +108,6 @@ const OngoingActions = () => {
       title: "Details",
       key: "details",
       dataIndex: "details",
-      //   render: (text: any, record: any) => (
-      //     <Space size="middle">
-      //       <a>Invite {text}</a>
-      //       <a>Delete</a>
-      //     </Space>
-      //   ),
     },
     {
       title: "Status",
@@ -130,9 +123,8 @@ const OngoingActions = () => {
   ];
   return (
     <>
-    
-  <Table columns={columns} dataSource={newData} />
-  </>
+      <Table columns={columns} dataSource={newData} />
+    </>
   );
 };
 

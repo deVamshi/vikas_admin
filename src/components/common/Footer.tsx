@@ -2,7 +2,6 @@ import React from "react";
 import { Row, Col, Image } from "antd";
 import { MailOutlined, PhoneOutlined } from "@ant-design/icons";
 import { Typography } from "antd";
-// import samparkLogo from "../../images/sampark-logo.svg";
 
 const { Text } = Typography;
 function Footer() {
@@ -35,7 +34,6 @@ function Footer() {
           </Text>
           <br />
           <Image src={"./sampark-logo.svg"} width={200} height={50} />
-          {/* <img src={samparkLogo} /> */}
         </Col>
       </Row>
     </div>

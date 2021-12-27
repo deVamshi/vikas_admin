@@ -30,5 +30,5 @@ export const fetchUsersDetails = async () => {
   );
   if (!res.ok) return [];
   const data = await res.json();
-  return data.scanResults;
+  return data.Result;
 };
